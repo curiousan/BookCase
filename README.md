@@ -1,2 +1,2 @@
-Getting the hands on play framework.
-#Basic git commands.
+Getting the hands on play framework .</b>
+Basic git commands.
