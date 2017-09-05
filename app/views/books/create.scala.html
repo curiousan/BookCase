@@ -1,0 +1,35 @@
+@(bookFrom: Form[Book])
+@import play.api.data.Form
+@import models.Book
+@import helper._
+
+
+
+<html>
+
+    <head>
+        <title>
+            create book
+
+        </title>
+    </head>
+
+    <body>
+        <h1> Create a  book</h1>
+        @helper.form(action = routes.BooksController.save()){
+            @helper.inputText(bookFrom("id"))
+            @helper.inputText(bookFrom("title"))
+            @helper.inputText(bookFrom("price"))
+            @helper.inputText(bookFrom("author"))
+
+
+            <input type ="submit" value="create a book">
+
+
+        }
+
+
+
+
+    </body>
+</html>
