@@ -14,23 +14,26 @@ GET     /message                    controllers.AsyncController.message
 
 GET     /about                      controllers.HomeController.about
 
-GET     /welcome/:name/:lastName    controllers.HomeController.welcome(name:String,lastName:String)
 
 GET     /books                      controllers.BooksController.index
+
+GET     /books/create               controllers.BooksController.create()
 
 GET     /books/:id                  controllers.BooksController.show(id : Integer)
 
 GET     /books/edit/:id             controllers.BooksController.edit(id : Integer)
 
-POST    /books/edit                 controllers.BooksController.update()
 
-GET     /books/create               controllers.BooksController.create()
+
+
+PUT    /books/edit                 controllers.BooksController.update()
+
 
 POST    /books/create               controllers.BooksController.save()
 
 
 
-GET     /books/delete/:id           controllers.BooksController.destroy(id : Integer)
+DELETE    /books/:id                controllers.BooksController.destroy(id : Integer)
 
 
 

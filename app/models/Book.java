@@ -2,62 +2,33 @@ package models;
 
 import java.util.HashSet;
 import java.util.Set;
+import io.ebean.*;
+import play.data.validation.Constraints;
 
-public class Book {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.Constraint;
 
+@Entity
+
+public class Book  extends Model {
+    @Id
+    @Constraints.Required
     public Integer id;
+
+    @Constraints.Required
+    @Constraints.MinLength(5)
+    @Constraints.MaxLength(255)
     public String title;
+
+    @Constraints.Required
     public Integer price;
+
+    @Constraints.Required
     public String author;
 
-    public Book(){
+    public static Finder<Integer, Book> find = new Finder<>(Book.class);
 
-    }
-
-
-    public Book(Integer id, String title, Integer price, String author) {
-        this.id = id;
-        this.title = title;
-        this.price = price;
-        this.author = author;
-    }
-
-    private static Set<Book> books;
-
-     static {
-       books = new HashSet<>();
-       books.add(new Book(1,"c++",20,"sandesh poudel"));
-       books.add(new Book(2,"java",30, "samson"));
-    }
-
-    public static Set<Book> allBooks(){
-         return books;
-    }
-
-    public static Book findById(Integer id){
-        for(Book book: books){
-            if(id.equals(book.id)){
-                return book;
-            }
-        }
-        return  null;
-    }
-
-    public static void add(Book book){
-       books.add(book);
-    }
-
-    public static boolean remove(Book book){
-        boolean result = false;
-        for(Book b :books){
-            if (b.equals(book)){
-                result = true;
-                books.remove(book);
-                return result;
-            }
-        }
-        return result;
-
-    }
 
 }
+

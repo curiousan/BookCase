@@ -1,0 +1,23 @@
+@import views.html.partials._booksForm
+@(bookFrom: play.data.Form[Book])
+@import helper._
+@import models.Book
+@layout("Edit Book"){
+    <h1> Edit Book</h1>
+    @helper.form(action = helper.CSRF(routes.BooksController.update())){
+        @_booksForm(bookFrom)
+
+
+        <input type ="submit" value="update the book">
+}
+
+
+
+
+
+
+
+}
+
+
+

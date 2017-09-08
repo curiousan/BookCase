@@ -3,8 +3,6 @@ package controllers;
 import play.mvc.*;
 
 import views.html.*;
-import views.html.Home.*;
-import views.html.Home.welcome;
 
 
 /**
@@ -24,20 +22,13 @@ public class HomeController extends Controller {
         String name = "sandesh poudel";
 
 
-
-
-        return ok(index.render("Your new application is ready."));
+        return ok(index.render());
     }
 
     public Result about() {
 
         return ok("About");
 
-    }
-
-
-    public Result welcome(String name, String lastName) {
-        return ok(welcome.render(name, lastName));
     }
 
 

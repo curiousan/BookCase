@@ -1,35 +1,17 @@
-@(bookFrom: Form[Book])
-@import play.api.data.Form
-@import models.Book
+@import views.html.partials._booksForm
+@(bookFrom: play.data.Form[Book])
 @import helper._
+@import models.Book
+
+@layout("Create a book"){
+    <h1> Create a  book</h1>
+    @helper.form(action = helper.CSRF(routes.BooksController.save())){
+       @_booksForm(bookFrom)
 
 
-
-<html>
-
-    <head>
-        <title>
-            create book
-
-        </title>
-    </head>
-
-    <body>
-        <h1> Create a  book</h1>
-        @helper.form(action = routes.BooksController.save()){
-            @helper.inputText(bookFrom("id"))
-            @helper.inputText(bookFrom("title"))
-            @helper.inputText(bookFrom("price"))
-            @helper.inputText(bookFrom("author"))
+        <input type ="submit" value="create a book">
 
 
-            <input type ="submit" value="create a book">
+    }
+}
 
-
-        }
-
-
-
-
-    </body>
-</html>
